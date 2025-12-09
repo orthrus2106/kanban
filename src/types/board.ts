@@ -13,7 +13,7 @@ export interface Column {
   tasks: Task[];
 }
 
-export interface ColumnDTO {
+export interface GetColumnsResponse {
   columns: Column[];
 }
 
@@ -21,4 +21,12 @@ export interface CreateTaskDTO {
   title: string;
   description?: string;
   columnId: number;
+}
+
+export interface CreateColumnDTO {
+  title: string;
+}
+
+export interface CreateColumnResponse {
+  column: Column;
 }

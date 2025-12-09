@@ -1,5 +1,6 @@
 import { useAppDispatch, useAppSelector } from '../../hooks/storeHooks';
 import { closeModal, selectModal } from '../../store/slices/modalSlice';
+import CreateColumnModal from './CreateColumnModal';
 
 import CreateTaskModal from './CreateTaskModal';
 import DeleteTaskModal from './DeleteTaskModal';
@@ -19,6 +20,10 @@ const ModalRoot = () => {
     return (
       <DeleteTaskModal isOpen onClose={handleClose} taskId={modal.taskId} />
     );
+  }
+
+  if (modal.type === 'createColumn') {
+    return <CreateColumnModal isOpen onClose={handleClose} />;
   }
 
   return null;

@@ -1,5 +1,6 @@
 import type { Column } from '../../types/board';
 import ColumnCard from './ColumnCard';
+import CreateColumnButton from './CreateColumnButton';
 
 type Props = {
   columns: Column[];
@@ -33,15 +34,7 @@ const Board = ({ columns }: Props) => {
             <ColumnCard key={col.id} column={col} />
           ))}
 
-          <button
-            type="button"
-            className="h-fit min-h-[120px] w-72
-                 rounded-xl border border-dashed border-slate-300 cursor-pointer
-                 bg-slate-100/60 text-sm font-medium text-slate-500
-                 hover:border-slate-400 hover:bg-slate-100"
-          >
-            + Add column
-          </button>
+          <CreateColumnButton />
         </div>
       </div>
     </section>

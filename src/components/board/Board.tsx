@@ -22,15 +22,23 @@ const Board = ({ columns }: Props) => {
           New column
         </button> */}
       </div>
-      <div className="mb-4 flex items-center justify-between gap-4">
-        <div className="flex flex-1 gap-4 overflow-x-auto pb-4">
+      <div className="mb-4">
+        <div
+          className="
+      grid gap-4 pb-4 items-start
+      grid-cols-[repeat(auto-fit,minmax(18rem,18rem))]
+    "
+        >
           {sortedColumns.map((col) => (
             <ColumnCard key={col.id} column={col} />
           ))}
 
           <button
             type="button"
-            className="flex h-fit min-h-[120px] w-72 shrink-0 items-center justify-center rounded-xl border border-dashed border-slate-300 bg-slate-100/60 text-sm font-medium text-slate-500 hover:border-slate-400 hover:bg-slate-100"
+            className="h-fit min-h-[120px] w-72
+                 rounded-xl border border-dashed border-slate-300 cursor-pointer
+                 bg-slate-100/60 text-sm font-medium text-slate-500
+                 hover:border-slate-400 hover:bg-slate-100"
           >
             + Add column
           </button>

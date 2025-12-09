@@ -17,7 +17,7 @@ const ColumnCard = ({ column }: Props) => {
   };
 
   return (
-    <article className="flex h-full w-72 shrink-0 flex-col rounded-xl border border-slate-200 bg-slate-50/80 shadow-sm">
+    <article className="flex w-full h-auto max-w-xs shrink-0 flex-col rounded-xl border border-slate-200 bg-slate-50/80 shadow-sm overflow-y">
       <header className="flex items-center justify-between gap-2 border-b border-slate-200 px-4 py-3">
         <h2 className="truncate text-sm font-semibold text-slate-900">
           {column.title}
@@ -38,7 +38,7 @@ const ColumnCard = ({ column }: Props) => {
       <footer className="border-t border-slate-200 px-3 py-2.5">
         <button
           type="button"
-          className="w-full rounded-md bg-white px-3 py-1.5 text-xs font-medium text-slate-700 shadow-sm hover:bg-slate-50"
+          className="w-full rounded-md cursor-pointer bg-white px-3 py-1.5 text-xs font-medium text-slate-700 shadow-sm hover:bg-slate-50"
           onClick={() => handleOpenModal(column.id)}
         >
           + Add task

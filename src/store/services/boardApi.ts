@@ -17,13 +17,24 @@ export const boardApi = createApi({
     }),
     createTask: builder.mutation<Task, CreateTaskDTO>({
       query: (body) => ({
-        url: '/tasks',
+        url: 'tasks',
         method: 'POST',
         body,
+      }),
+      invalidatesTags: ['Columns'],
+    }),
+    deleteTask: builder.mutation<void, number>({
+      query: (taskId) => ({
+        url: `tasks/${taskId}`,
+        method: 'DELETE',
       }),
       invalidatesTags: ['Columns'],
     }),
   }),
 });
 
-export const { useGetColumnsQuery, useCreateTaskMutation } = boardApi;
+export const {
+  useGetColumnsQuery,
+  useCreateTaskMutation,
+  useDeleteTaskMutation,
+} = boardApi;

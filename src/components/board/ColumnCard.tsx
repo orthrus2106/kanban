@@ -29,7 +29,7 @@ const ColumnCard = ({ column }: Props) => {
 
       <div className="flex min-h-[60px] flex-1 flex-col gap-2 overflow-y-auto px-3 py-3">
         {sortedTasks.length === 0 ? (
-          <p className="text-xs italic text-slate-400">Пока нет задач</p>
+          <p className="text-xs italic text-slate-400">There is no tasks</p>
         ) : (
           sortedTasks.map((task) => <TaskCard key={task.id} task={task} />)
         )}

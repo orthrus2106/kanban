@@ -6,9 +6,8 @@ export type ModalType =
   | 'deleteTask'
   | null;
 
-export type ModalPayload = { columnId: number } | { taskId: number } | null;
-
-export type UiModalState = {
+export interface UiModalState {
   type: ModalType;
-  payload: ModalPayload;
-};
+  columnId: number | null;
+  taskId: number | null;
+}

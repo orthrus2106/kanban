@@ -1,12 +1,20 @@
 import type { Column } from '../../types/board';
 import TaskCard from './TaskCard';
 
+import { useAppDispatch } from '../../hooks/storeHooks';
+import { openCreateTask } from '../../store/slices/modalSlice';
+
 type Props = {
   column: Column;
 };
 
 const ColumnCard = ({ column }: Props) => {
+  const dispatch = useAppDispatch();
   const sortedTasks = [...column.tasks].sort((a, b) => a.order - b.order);
+
+  const handleOpenModal = (id: number) => {
+    dispatch(openCreateTask({ columnId: id }));
+  };
 
   return (
     <article className="flex h-full w-72 shrink-0 flex-col rounded-xl border border-slate-200 bg-slate-50/80 shadow-sm">
@@ -31,6 +39,7 @@ const ColumnCard = ({ column }: Props) => {
         <button
           type="button"
           className="w-full rounded-md bg-white px-3 py-1.5 text-xs font-medium text-slate-700 shadow-sm hover:bg-slate-50"
+          onClick={() => handleOpenModal(column.id)}
         >
           + Add task
         </button>

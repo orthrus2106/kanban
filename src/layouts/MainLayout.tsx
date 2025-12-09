@@ -1,7 +1,9 @@
 import { useGetMeQuery } from '../store/services/authApi';
 import { Navigate, Outlet } from 'react-router';
+
 import SideMenu from '../components/layout/SideMenu';
 import Header from '../components/layout/Header';
+import ModalRoot from '../components/modals/ModalRoot';
 
 const MainLayout = () => {
   const localToken = localStorage.getItem('token');
@@ -31,6 +33,8 @@ const MainLayout = () => {
         <main className="flex-1 p-6 md:p-8 overflow-auto">
           <Outlet />
         </main>
+
+        <ModalRoot />
       </div>
     </div>
   );

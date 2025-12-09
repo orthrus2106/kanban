@@ -23,9 +23,10 @@ const TaskDropDown = ({ taskId }: Props) => {
       <MenuItem>
         <button
           type="button"
-          className="w-full px-4 py-1.5 text-left hover:bg-slate-100 rounded-md cursor-pointer"
+          className="w-full flex items-center justify-start gap-2 px-2 py-1.5 text-left hover:bg-slate-100 rounded-md cursor-pointer"
           onClick={handleEdit}
         >
+          <i className="bi bi-pencil"></i>
           Edit task
         </button>
       </MenuItem>
@@ -33,9 +34,10 @@ const TaskDropDown = ({ taskId }: Props) => {
       <MenuItem>
         <button
           type="button"
-          className="w-full px-4 py-1.5 text-left text-red-600 hover:bg-slate-100 rounded-md cursor-pointer"
+          className="w-full flex items-center justify-start gap-2 px-2 py-1.5 text-left text-red-600 hover:bg-slate-100 rounded-md cursor-pointer"
           onClick={handleDelete}
         >
+          <i className="bi bi-trash"></i>
           Delete task
         </button>
       </MenuItem>

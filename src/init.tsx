@@ -1,4 +1,6 @@
 import './styles/index.css';
+import 'bootstrap-icons/font/bootstrap-icons.css';
+
 import App from './App';
 import { BrowserRouter } from 'react-router';
 import { store } from './store/store';

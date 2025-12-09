@@ -1,7 +1,12 @@
 import { createApi } from '@reduxjs/toolkit/query/react';
 import { baseQueryWithReauth } from '../utils/baseQueryWithReauth';
-import type { Column, ColumnDTO } from '../../types/board';
-import type { Task, CreateTaskDTO } from '../../types/board';
+import type { Column, GetColumnsResponse } from '../../types/board';
+import type {
+  Task,
+  CreateTaskDTO,
+  CreateColumnDTO,
+  CreateColumnResponse,
+} from '../../types/board';
 
 export const boardApi = createApi({
   reducerPath: 'boardApi',
@@ -10,7 +15,7 @@ export const boardApi = createApi({
   endpoints: (builder) => ({
     getColumns: builder.query<Column[], void>({
       query: () => 'columns/',
-      transformResponse: (response: ColumnDTO) => {
+      transformResponse: (response: GetColumnsResponse) => {
         return response.columns;
       },
       providesTags: ['Columns'],
@@ -30,6 +35,13 @@ export const boardApi = createApi({
       }),
       invalidatesTags: ['Columns'],
     }),
+    createColumn: builder.mutation<CreateColumnResponse, CreateColumnDTO>({
+      query: (body) => ({
+        url: 'columns/',
+        method: 'POST',
+        body,
+      }),
+    }),
   }),
 });
 
@@ -37,4 +49,5 @@ export const {
   useGetColumnsQuery,
   useCreateTaskMutation,
   useDeleteTaskMutation,
+  useCreateColumnMutation,
 } = boardApi;

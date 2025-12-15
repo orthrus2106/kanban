@@ -6,6 +6,8 @@ import type {
   CreateTaskDTO,
   CreateColumnDTO,
   CreateColumnResponse,
+  UpdateTaskResponse,
+  UpdateTaskArgs,
 } from '../../types/board';
 
 export const boardApi = createApi({
@@ -41,6 +43,22 @@ export const boardApi = createApi({
         method: 'POST',
         body,
       }),
+      invalidatesTags: ['Columns'],
+    }),
+    deleteColumn: builder.mutation<void, number>({
+      query: (columnId) => ({
+        url: `columns/${columnId}`,
+        method: 'DELETE',
+      }),
+      invalidatesTags: ['Columns'],
+    }),
+    updateTask: builder.mutation<UpdateTaskResponse, UpdateTaskArgs>({
+      query: ({ id, data }) => ({
+        url: `tasks/${id}`,
+        method: 'PATCH',
+        body: data,
+      }),
+      invalidatesTags: ['Columns'],
     }),
   }),
 });
@@ -50,4 +68,6 @@ export const {
   useCreateTaskMutation,
   useDeleteTaskMutation,
   useCreateColumnMutation,
+  useDeleteColumnMutation,
+  useUpdateTaskMutation,
 } = boardApi;

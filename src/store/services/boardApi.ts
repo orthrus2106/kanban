@@ -80,4 +80,5 @@ export const {
   useCreateColumnMutation,
   useDeleteColumnMutation,
   useUpdateTaskMutation,
+  useUpdateColumnMutation,
 } = boardApi;

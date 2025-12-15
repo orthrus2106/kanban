@@ -8,6 +8,8 @@ import type {
   CreateColumnResponse,
   UpdateTaskResponse,
   UpdateTaskArgs,
+  UpdateColumnResponse,
+  UpdateColumnArgs,
 } from '../../types/board';
 
 export const boardApi = createApi({
@@ -55,6 +57,14 @@ export const boardApi = createApi({
     updateTask: builder.mutation<UpdateTaskResponse, UpdateTaskArgs>({
       query: ({ id, data }) => ({
         url: `tasks/${id}`,
+        method: 'PATCH',
+        body: data,
+      }),
+      invalidatesTags: ['Columns'],
+    }),
+    updateColumn: builder.mutation<UpdateColumnResponse, UpdateColumnArgs>({
+      query: ({ id, data }) => ({
+        url: `columns/${id}`,
         method: 'PATCH',
         body: data,
       }),

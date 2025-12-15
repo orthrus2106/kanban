@@ -44,6 +44,12 @@ const modalSlice = createSlice({
       state.taskId = null;
     },
 
+    openDeleteColumn(state, action: PayloadAction<{ columnId: number }>) {
+      state.type = 'deleteColumn';
+      state.columnId = action.payload.columnId;
+      state.taskId = null;
+    },
+
     closeModal(state) {
       state.type = null;
       state.columnId = null;
@@ -58,6 +64,7 @@ export const {
   openDeleteTask,
   openCreateColumn,
   openEditColumn,
+  openDeleteColumn,
   closeModal,
 } = modalSlice.actions;
 

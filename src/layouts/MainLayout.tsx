@@ -30,7 +30,7 @@ const MainLayout = () => {
       <div className="flex flex-col flex-1">
         <Header user={user} />
 
-        <main className="flex-1 p-6 md:p-8 overflow-auto">
+        <main className="flex-1 p-2 md:p-4 overflow-auto">
           <Outlet />
         </main>
 

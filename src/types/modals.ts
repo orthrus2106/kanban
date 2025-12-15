@@ -3,6 +3,7 @@ export type ModalType =
   | 'editTask'
   | 'createColumn'
   | 'editColumn'
+  | 'deleteColumn'
   | 'deleteTask'
   | null;
 

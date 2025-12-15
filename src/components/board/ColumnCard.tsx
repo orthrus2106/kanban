@@ -1,8 +1,13 @@
 import type { Column } from '../../types/board';
 import TaskCard from './TaskCard';
+import MoreMenu from './MoreMenu';
 
 import { useAppDispatch } from '../../hooks/storeHooks';
-import { openCreateTask } from '../../store/slices/modalSlice';
+import {
+  openCreateTask,
+  openEditColumn,
+  openDeleteColumn,
+} from '../../store/slices/modalSlice';
 
 type Props = {
   column: Column;
@@ -19,12 +24,18 @@ const ColumnCard = ({ column }: Props) => {
   return (
     <article className="flex w-full h-auto max-w-xs shrink-0 flex-col rounded-xl border border-slate-200 bg-slate-50/80 shadow-sm overflow-y">
       <header className="flex items-center justify-between gap-2 border-b border-slate-200 px-4 py-3">
-        <h2 className="truncate text-sm font-semibold text-slate-900">
-          {column.title}
-        </h2>
-        <span className="rounded-full bg-slate-200 px-2 py-0.5 text-xs font-medium text-slate-700">
-          {column.tasks.length}
-        </span>
+        <div className="flex gap-2 items-center">
+          <h2 className="truncate text-sm font-semibold text-slate-900">
+            {column.title}
+          </h2>
+          <span className="rounded-full bg-slate-200 px-2 py-0.5 text-xs font-medium text-slate-700">
+            {column.tasks.length}
+          </span>
+        </div>
+        <MoreMenu
+          onEdit={() => dispatch(openEditColumn({ columnId: column.id }))}
+          onDelete={() => dispatch(openDeleteColumn({ columnId: column.id }))}
+        />
       </header>
 
       <div className="flex min-h-[60px] flex-1 flex-col gap-2 overflow-y-auto px-3 py-3">

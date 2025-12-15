@@ -49,7 +49,7 @@ const ColumnCard = ({ column }: Props) => {
       <footer className="border-t border-slate-200 px-3 py-2.5">
         <button
           type="button"
-          className="w-full rounded-md cursor-pointer bg-white px-3 py-1.5 text-xs font-medium text-slate-700 shadow-sm hover:bg-slate-50"
+          className="w-full rounded-md cursor-pointer bg-white px-3 py-1.5 text-xs font-medium text-slate-700 shadow-sm hover:bg-slate-50 transition"
           onClick={() => handleOpenModal(column.id)}
         >
           + Add task

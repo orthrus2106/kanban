@@ -6,6 +6,7 @@ import CreateTaskModal from './CreateTaskModal';
 import DeleteTaskModal from './DeleteTaskModal';
 import DeleteColumnModal from './DeleteColumnModal';
 import UpdateTaskModal from './UpdateTaskModal';
+import UpdateColumnModal from './UpdateColumnModal';
 
 const ModalRoot = () => {
   const modal = useAppSelector(selectModal);
@@ -42,6 +43,16 @@ const ModalRoot = () => {
   if (modal.type === 'editTask' && modal.taskId !== null) {
     return (
       <UpdateTaskModal isOpen onClose={handleClose} taskId={modal.taskId} />
+    );
+  }
+
+  if (modal.type === 'editColumn' && modal.columnId !== null) {
+    return (
+      <UpdateColumnModal
+        isOpen
+        onClose={handleClose}
+        columnId={modal.columnId}
+      />
     );
   }
 
